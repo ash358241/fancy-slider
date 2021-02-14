@@ -5,6 +5,13 @@ const searchBtn = document.getElementById("search-btn");
 const sliderBtn = document.getElementById("create-slider");
 const sliderContainer = document.getElementById("sliders");
 
+//mode-changing
+let themeButton = document.getElementById("themeButton");
+let mainPart = document.getElementById("main-part");
+themeButton.addEventListener("click", function () {
+  mainPart.classList.toggle("body-container");
+});
+
 //showing result pressing Enter
 var searchButton = document.getElementById("search-btn");
 document
@@ -18,15 +25,13 @@ document
 // selected image
 let sliders = [];
 
-// If this key doesn't work
-// Find the name in the url and go to their website
-// to create your own api key
 const KEY = "15674931-a9d714b6e9d654524df198e00&q";
 
 // show images
 const showImages = (images) => {
   imagesArea.style.display = "block";
   gallery.innerHTML = "";
+
   // show gallery title
   galleryHeader.style.display = "flex";
   images.forEach((image) => {
@@ -52,13 +57,11 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  // element.classList.add("added");
   let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
     element.classList.toggle("added");
   } else if (item != -1) {
-    // alert("Hey, Already added !");
     sliders.pop(img);
     element.classList.toggle("added");
   }
@@ -70,6 +73,7 @@ const createSlider = () => {
     alert("Select at least 2 image.");
     return;
   }
+
   // crate slider previous next area
   sliderContainer.innerHTML = "";
   const prevNext = document.createElement("div");
@@ -146,6 +150,7 @@ sliderBtn.addEventListener("click", function () {
   createSlider();
 });
 
+//spinner toggling
 const toggleSpinner = () => {
   const spinner = document.getElementById("loading-spinner");
   spinner.classList.toggle("d-none");

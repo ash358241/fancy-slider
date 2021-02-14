@@ -19,7 +19,7 @@
 }
 
 .added {
-  border: 2px solid #1e1743;
+  border: 3px solid red;
   border-radius: 5px;
 }
 
@@ -36,7 +36,8 @@ img {
   cursor: pointer;
 }
 
-.prev, .next {
+.prev,
+.next {
   background-color: transparent;
   padding: 8px 10px;
   color: #fff;
@@ -63,4 +64,11 @@ img {
     height: 300px;
     width: 90%;
   }
+}
+
+.body-container {
+  min-height: 650px;
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease;
 }
