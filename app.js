@@ -133,9 +133,13 @@ const changeSlide = (index) => {
 searchBtn.addEventListener("click", function () {
   document.querySelector(".main").style.display = "none";
   clearInterval(timer);
-  const search = document.getElementById("search");
-  getImages(search.value);
-  sliders.length = 0;
+  const search = document.getElementById("search").value;
+  if (search === "") {
+    alert("Write something to be searched");
+  } else {
+    getImages(search);
+    sliders.length = 0;
+  }
 });
 
 sliderBtn.addEventListener("click", function () {
